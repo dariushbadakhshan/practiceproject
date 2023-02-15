@@ -30,6 +30,9 @@ const UserForm: FC<props> = ({ onSaveUser }) => {
     };
     // passing Stored userData to NewUser component
     onSaveUser(enteredUserData);
+    // reset username and age in form
+    setUEnteredUserName("");
+    setEnteredUserAge(0);
   };
 
   // return JSX block
@@ -48,7 +51,7 @@ const UserForm: FC<props> = ({ onSaveUser }) => {
           <label>AGE</label>
           <input
             type="number"
-            value={EnteredUserAge ?? ""}
+            value={EnteredUserAge > 0 ? EnteredUserAge : ""}
             onChange={ageChangeHandler}
           />
         </div>
