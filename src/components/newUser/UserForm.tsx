@@ -1,25 +1,38 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState, FC } from "react";
 
-const UserForm = () => {
+// declare types
+type props = {
+  onSaveUser: (enteredUserData: { userName: string; userAge: number }) => void;
+};
+
+// main component
+const UserForm: FC<props> = ({ onSaveUser }) => {
   // state managing
-  const [userName, setUserName] = useState<string>("");
+  const [enteredUserName, setUEnteredUserName] = useState<string>("");
 
-  const [userAge, setUserAge] = useState<number>();
+  const [EnteredUserAge, setEnteredUserAge] = useState<number>(0);
 
   // input value managing
   const usernameChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setUserName(event.target.value);
+    setUEnteredUserName(event.target.value);
   };
 
   const ageChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-    setUserAge(Number(event.target.value));
+    setEnteredUserAge(Number(event.target.value));
   };
 
   //form managing
   const submitHandler = (event: FormEvent) => {
     event.preventDefault();
+    const enteredUserData = {
+      userName: enteredUserName,
+      userAge: EnteredUserAge,
+    };
+    // passing Stored userData to NewUser component
+    onSaveUser(enteredUserData);
   };
 
+  // return JSX block
   return (
     <form onSubmit={submitHandler}>
       <div>
@@ -27,13 +40,17 @@ const UserForm = () => {
           <label>USERNAME</label>
           <input
             type="text"
-            value={userName}
+            value={enteredUserName}
             onChange={usernameChangeHandler}
           />
         </div>
         <div>
           <label>AGE</label>
-          <input type="number" value={userAge} onChange={ageChangeHandler} />
+          <input
+            type="number"
+            value={EnteredUserAge ?? ""}
+            onChange={ageChangeHandler}
+          />
         </div>
       </div>
       <div>
