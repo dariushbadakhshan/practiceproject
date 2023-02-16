@@ -1,6 +1,9 @@
 import { FC } from "react";
+
 // components import
 import UserForm from "./UserForm";
+import FormImage from "./UI/FormImage";
+import FormWrapper from "./UI/FormWrapper";
 
 //type manage
 type props = {
@@ -10,6 +13,7 @@ type props = {
     userAge: number;
   }) => void;
 };
+
 // main component
 const NewUser: FC<props> = ({ onAddUser }) => {
   // event managing
@@ -24,9 +28,11 @@ const NewUser: FC<props> = ({ onAddUser }) => {
 
   // return JSX block
   return (
-    <div>
+    <FormWrapper>
+      <FormImage />
+
       <UserForm onSaveUser={saveUserHandler} />
-    </div>
+    </FormWrapper>
   );
 };
 export default NewUser;
