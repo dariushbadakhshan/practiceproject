@@ -16,3 +16,4 @@ const UserList = styled.div`
     padding: 0.5rem;
   }
 `;
+export default UserList;

@@ -1,15 +1,26 @@
 import { FC } from "react";
+//import component
+import UserList from "./UI/UserList";
 
+//managing types
 type props = {
-  userName: string;
-  userAge: number;
+  users: {
+    id: string;
+    userName: string;
+    userAge: number;
+  }[];
 };
-const Users: FC<props> = ({ userName, userAge }) => {
-  return (
-    <div>
-      <h2>{`Username:${userName}`} </h2>
-      <h2>{`Age: ${userAge} years old`}</h2>
-    </div>
-  );
+
+// main component
+const Users: FC<props> = ({ users }) => {
+  const renderUsers = users.map((user) => (
+    <ul>
+      <li>
+        <h2>{`Username:${user.userName}`} </h2>
+        <h2>{`Age: ${user.userAge} years old`}</h2>
+      </li>
+    </ul>
+  ));
+  return <UserList>{renderUsers}</UserList>;
 };
 export default Users;
