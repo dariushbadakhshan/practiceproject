@@ -9,8 +9,7 @@ const UserList = styled.div`
   border-radius: 5px;
 
   & h2 {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     color: #5e4151;
     margin: 1rem 0 0 0;
   }
@@ -26,7 +25,6 @@ const UserList = styled.div`
   & li {
     display: flex;
     justify-content: space-around;
-    flex-wrap: no-wrap;
     width: 85%;
     background-color: #7c566b;
     border: 1px solid #5e4151;

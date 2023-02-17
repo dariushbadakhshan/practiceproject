@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 //import components
 import NewUser from "./components/newUser/NewUser";
 import Users from "./components/users/Users";
+
 //import css
 import style from "./App.module.css";
 

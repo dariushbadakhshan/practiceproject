@@ -1,9 +1,10 @@
 import { FC } from "react";
+
 //import component
 import UserList from "./UI/UserList";
 import UserItem from "./UserItem";
 
-//managing types
+// declare props types
 type props = {
   users: {
     id: string;

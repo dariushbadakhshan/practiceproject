@@ -4,7 +4,6 @@ const Modal = styled.div`
   position: fixed;
   top: 30vh;
   left: 10%;
-  width: 80%;
   z-index: 100;
   overflow: hidden;
   background: #eae0df;
