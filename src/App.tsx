@@ -3,7 +3,7 @@ import { useState } from "react";
 import NewUser from "./components/newUser/NewUser";
 import Users from "./components/users/Users";
 //import css
-import "./App.css";
+import style from "./App.module.css";
 
 //main component
 function App() {
@@ -22,9 +22,10 @@ function App() {
       return [userData, ...prevUsers];
     });
   };
+
   // return JSX block
   return (
-    <div className="App">
+    <div className={style.App}>
       <NewUser onAddUser={addUserHandler} />
       <Users users={users} />
     </div>
