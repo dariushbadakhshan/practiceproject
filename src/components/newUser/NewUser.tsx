@@ -2,10 +2,12 @@ import { FC } from "react";
 
 // components import
 import UserForm from "./UserForm";
-import FormImage from "./UI/FormImage";
-import FormWrapper from "./UI/FormWrapper";
 
-//type manage
+//style components
+import FormImage from "./UI/FormImage";
+import Form from "./UI/Form";
+
+//declare props types
 type props = {
   onAddUser: (userData: {
     id: string;
@@ -28,11 +30,11 @@ const NewUser: FC<props> = ({ onAddUser }) => {
 
   // return JSX block
   return (
-    <FormWrapper>
+    <Form>
       <FormImage />
 
       <UserForm onSaveUser={saveUserHandler} />
-    </FormWrapper>
+    </Form>
   );
 };
 export default NewUser;
